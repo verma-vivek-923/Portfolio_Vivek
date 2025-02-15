@@ -45,6 +45,22 @@ const ProjectDetail = () => {
                   <h1 className="text-xl md:text-2xl lg:text-3xl capitalize font-semibold text-yellow-500">
                     {data?.title}
                   </h1>
+                  <div className="mt-4 mb-1 flex justify-end gap-4">
+                <a
+                  href={data.demo}
+                  target="_blank"
+                  className={`${data.demo ? "block" : "hidden" } bg-blue-500  cursor-pointer hover:bg-blue-600 text-white px-4 py-1 rounded-md`}
+                >
+                  Demo
+                </a>
+                <a
+                  href={data.github}
+                  target="_blank"
+                  className="bg-yellow-400 cursor-pointer hover:bg-yellow-500 text-black px-4 py-1 rounded-md"
+                >
+                  Code
+                </a>
+              </div>
                 </div>
                 <div className="mt-3 border-t border-gray-300" />
               </div>

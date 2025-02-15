@@ -1,15 +1,24 @@
 import React, { useState } from "react";
 import photo from "../../public/photo.avif";
-
-import { IoIosCloseCircleOutline, IoMdPhotos } from "react-icons/io";
-import { IoMenuOutline } from "react-icons/io5";
+import resume from "../../public/Vivek_resume.pdf";
+import { ImBlogger } from "react-icons/im";
+import {
+  IoIosCloseCircleOutline,
+  IoMdInformationCircle,
+  IoMdPhotos,
+} from "react-icons/io";
+import { IoMenuOutline, IoHome } from "react-icons/io5";
+import { FaPhoneVolume, FaUsersLine } from "react-icons/fa6";
+import { Link } from "react-scroll";
 
 const Navbar = () => {
   const [show, setShow] = useState(false);
   console.log(show);
   return (
     <>
-      <nav className="sticky top-0 left-0   max-w-screen-2xl  shadow-lg py-2 container z-50  mx-auto px-4 md:px-20">
+      <nav data-aos="fade-down"
+      data-aos-duration="500"
+      className="sticky top-0 left-0   max-w-screen-2xl  shadow-lg py-2 container z-50  mx-auto px-4 md:px-20">
         <div className="flex w-full items-center relative justify-between">
           <div className="flex items-center">
             <div>
@@ -41,41 +50,51 @@ const Navbar = () => {
           <div>
             <div className="flex items-center justify-center ">
               <ul className="hidden md:flex space-x-4">
-                <a
+                <Link to={"home"}
+                    smooth={true}
+                    duration={500}
+                    offset={-70}
+                    activeClass="active"
                   href="#"
                   className=" hover:text-blue-600 hover:tracking-wider hover:font-semibold transition-all duration-300 px-2 py-1 text-1.5xl md:text-base rounded"
                   //"/"
                 >
                   HOME
-                </a>
-                <a
+                </Link >
+                <Link to={"projects"}
+                    smooth={true}
+                    duration={500}
+                    offset={-70}
+                    activeClass="active"
                   href="#"
                   className=" hover:text-blue-600 hover:tracking-wider hover:font-semibold transition-all duration-300 px-2 py-1 text-1.5xl md:text-base rounded"
                   //"/blogs"
                 >
-                  BLOGS
-                </a>
-                <a
-                  href="#"
-                  className=" hover:text-blue-600 hover:tracking-wider hover:font-semibold transition-all duration-300 px-2 py-1 text-1.5xl md:text-base rounded"
-                  //"/creators"
-                >
-                  CREATORS
-                </a>
-                <a
+                  PROJECTS
+                </Link >
+
+                <Link to={"about"}
+                    smooth={true}
+                    duration={500}
+                    offset={-70}
+                    activeClass="active"
                   href="#"
                   className=" hover:text-blue-600 hover:tracking-wider hover:font-semibold transition-all duration-300 px-2 py-1 text-1.5xl md:text-base rounded"
                   //"/about"
                 >
                   ABOUT
-                </a>
-                <a
+                </Link >
+                <Link to={"contact"}
+                    smooth={true}
+                    duration={500}
+                    offset={-70}
+                    activeClass="active"
                   href="#"
                   className=" hover:text-blue-600 hover:tracking-wider hover:font-semibold transition-all duration-300 px-2 py-1 text-1.5xl md:text-base rounded"
                   //"/contact"
                 >
                   CONTACT US
-                </a>
+                </Link >
               </ul>
             </div>
           </div>
@@ -106,43 +125,63 @@ const Navbar = () => {
         </div>
         {show && (
           <>
-            <div className={`absolute shadow-lg mt-4 w-full left-0 z-50 `}>
-              <ul className="z-50 flex flex-col px-4 pb-4 justify-center items-right md:hidden rounded-b-lg  text-xl space-y-1">
-                <a
-                  href="#"
+            <div
+              className={`absolute  shadow-lg rounded-b-lg w-full left-0 z-50 `}
+            >
+              <ul className="z-50 flex flex-col px-4 pb-4 my-2 bg-slate-700 justify-center items-right md:hidden rounded-b-lg  text-xl space-y-1">
+                <Link
+                  to="home"
+                  smooth={"true"}
+                  duration={500}
+                  offset={-70}
+                  activeClass="active"
+                  onClick={() => setShow(!show)}
                   className="hover:text-blue-600 flex  items-center gap-2 duration-200 hover:font-semibold hover:tracking-wider hover:underline  px-2 py- text-base md:text-sm  rounded"
-                  // "/"
                 >
-                  <span>HOME</span>
-                </a>
-                <a
-                  href="#"
+                  <IoHome size={13} /> <span>HOME</span>
+                </Link>
+                <Link
+                  to={"projects"}
+                  smooth={true}
+                  duration={500}
+                  offset={-70}
+                  activeClass="active"
+                  onClick={() => setShow(!show)}
                   className="hover:text-blue-600 flex  items-center gap-2 duration-200 hover:font-semibold hover:tracking-wider hover:underline px-2 py- text-base md:text-sm  rounded"
-                  // "/blogs"
                 >
-                  <span> BLOGS</span>
-                </a>
-                <a
-                  href="#"
+                  <ImBlogger size={12} /> <span> PROJECTS</span>
+                </Link>
+                <a  href={resume} download
+                  onClick={() => setShow(!show)}
                   className="hover:text-blue-600 flex items-center  gap-2 duration-200 hover:font-semibold hover:tracking-wider hover:underline px-2 py- text-base md:text-sm  rounded"
-                  // "/creators"
                 >
-                  <span>CREATORS</span>
-                </a>
-                <a
-                  href="#"
+                  <FaUsersLine size={14} />
+                  <span>RESUME</span>
+                </a >
+                <Link
+                  to={"about"}
+                  smooth={true}
+                  duration={500}
+                  offset={-70}
+                  activeClass="active"
+                  onClick={() => setShow(!show)}
                   className="hover:text-blue-600 flex items-center gap-2 duration-200 hover:font-semibold hover:tracking-wider hover:underline  px-2 py- text-base md:text-sm  rounded"
-                  // "/about"
                 >
+                  <IoMdInformationCircle size={14} />
                   <span>ABOUT</span>
-                </a>
-                <a
-                  href="#"
+                </Link>
+                <Link
+                  to={"contact"}
+                  smooth={true}
+                  duration={500}
+                  offset={-70}
+                  activeClass="active"
+                  onClick={() => setShow(!show)}
                   className="hover:text-blue-600 flex items-center gap-2 duration-200 hover:font-semibold hover:tracking-wider hover:underline px-2 py- text-base md:text-sm  rounded"
-                  // "/contact"
                 >
+                  <FaPhoneVolume size={13} />
                   <span>CONTACT US</span>
-                </a>
+                </Link>
               </ul>
             </div>
           </>

@@ -2,8 +2,8 @@ const projects = [
   {
     id: 1,
     title: "CoolBlog.com (MERN)",
-    image: "../../public/Projects/images/CoolBlog.png",
-    video: "../../public/Projects/videos/Coolblog.mp4",
+    image: `${import.meta.env.BASE_URL}Projects/images/Coolblog.png`,
+    video: `${import.meta.env.BASE_URL}Projects/videos/Coolblog.mp4`,
     description: `I'm thrilled to introduce CoolBlog, a dynamic web application designed to connect people through their thoughts and stories. 
   This platform enables users to read and share blogs effortlessly, fostering a vibrant community of readers and writers.
 
@@ -26,8 +26,8 @@ const projects = [
   {
     id: 2,
     title: "Library.com (MERN))",
-    image: "../../public/Projects/images/Library.png",
-    video: "../../public/Projects/videos/Library.mp4",
+    image: `${import.meta.env.BASE_URL}Projects/images/Library.png`,
+    video: `${import.meta.env.BASE_URL}Projects/videos/Library.mp4`,
     description: `a full-stack bookstore web app built using the MERN stack! This platform allows users to explore, read, and purchase books online seamlessly. Books that are available for free are prominently featured on the homepage, while users can also browse the complete collection of books effortlessly.
 
       Key Features:
@@ -44,8 +44,8 @@ const projects = [
   {
     id: 3,
     title: "Docx To Pdf Converter",
-    image: "../../public/Projects/images/DocToPdf.png",
-    video: "/videos/DocToPdf.mp4",
+    image: `${import.meta.env.BASE_URL}Projects/images/DocToPdf.png`,
+    video: `${import.meta.env.BASE_URL}Projects/videos/DocToPdf.mp4`,
     description:
       "A fun interactive bubble game where users match numbers to score points.",
     github: "https://github.com/verma-vivek-923/Word_To_PDF-Converter.git",
@@ -53,8 +53,8 @@ const projects = [
   {
     id: 4,
     title: "Currency Converter",
-    image: "../../public/Projects/images/Currency_Converter.png",
-    video: "/videos/currency.mp4",
+    image: `${import.meta.env.BASE_URL}Projects/images/Currency_Converter.png`,
+    video: `${import.meta.env.BASE_URL}Projects/videos/currency.mp4`,
     description: ` a fully responsive Currency Converter Web App!
 
       This app allows users to input an amount and convert it to a specified currency. Users can select their currencies using the "From" and "To" dropdown menus. After selecting both currencies, simply click the "Exchange" button, and the converted amount will be displayed in the message box.
@@ -66,8 +66,8 @@ const projects = [
   {
     id: 5,
     title: "To-Do List",
-    image: "../../public/Projects/images/ToDo.png",
-    video: "/videos/ToDo.mp4",
+    image: `${import.meta.env.BASE_URL}Projects/images/ToDo.png`,
+    video: `${import.meta.env.BASE_URL}Projects/videos/ToDo.mp4`,
     description: ` a fully responsive To-Do Web App built with JavaScript!
 
       This app allows users to easily manage their tasks. You can create a new task by typing it into the input bar and either clicking the "Add" button or pressing the "Enter" key. Once a task is completed, you can mark it as done by checking the checkbox, and you can also delete tasks from the list by clicking the delete icon.
@@ -79,8 +79,8 @@ const projects = [
   {
     id: 6,
     title: "Tic-Tac-Toe game",
-    image: "../../public/Projects/images/tic_tac_toe.png",
-    video: "/videos/tic-tac-toe.mp4",
+    image: `${import.meta.env.BASE_URL}Projects/images/Tic_Tac_Toe.png`,
+    video: `${import.meta.env.BASE_URL}Projects/videos/Tic_Tac_Toe.mp4`,
     description: ` a fully responsive Tic-Tac-Toe game built with HTML, CSS, and JavaScript!
 
       This game is easy to play and features a user-friendly interface. It starts in dual-player mode by default, so you can enjoy a match with a friend. If you prefer to play solo, simply check the "Play with Computer" checkbox, and you'll be able to challenge the computer.
@@ -91,27 +91,27 @@ const projects = [
   {
     id: 7,
     title: "Rock-Paper-Scissor game",
-    image: "../../public/Projects/images/RockPaperScissor.png",
-    video: "/videos/RockPaperScissor.mp4",
+    image: `${import.meta.env.BASE_URL}Projects/images/RockPaperScissor.png`,
+    video: `${import.meta.env.BASE_URL}Projects/videos/RockPaperScissor.mp4`,
     description:
       `a fully responsive Rock-Paper-Scissors game built with HTML, CSS, and JavaScript!
       In this game, the player selects one of the three options: rock, paper, or scissors. The computer then makes its choice. If your choice beats the computer's, you win, and your score increases by 1, with a green message displayed at the bottom of the screen. If the computer wins, its score increases by 1, and a red message appears. If both choose the same, it's a draw, and a message in a blackish color is shown.`,
     github: "https://github.com/verma-vivek-923/Rock-Paper-Scissor_Game",
   },
-  {
-    id: 8,
-    title: "Food_Order.com",
-    image: "../../public/Projects/images/FoodOrder.png",
-    video: "/videos/FoodOrder.mp4",
-    description: `a fully responsive Rock-Paper-Scissors game built with HTML, CSS, and JavaScript!
-      In this game, the player selects one of the three options: rock, paper, or scissors. The computer then makes its choice. If your choice beats the computer's, you win, and your score increases by 1, with a green message displayed at the bottom of the screen. If the computer wins, its score increases by 1, and a red message appears. If both choose the same, it's a draw, and a message in a blackish color is shown.`,
-    github: "https://github.com/yourusername/tic-tac-toe",
-  },
+  // {
+  //   id: 8,
+  //   title: "Food_Order.com",
+  //   image: `${import.meta.env.BASE_URL}Projects/images/FoodOrder.png`,
+  //   video: `${import.meta.env.BASE_URL}Projects/videos/FoodOrder.mp4`,
+  //   description: `a fully responsive Rock-Paper-Scissors game built with HTML, CSS, and JavaScript!
+  //     In this game, the player selects one of the three options: rock, paper, or scissors. The computer then makes its choice. If your choice beats the computer's, you win, and your score increases by 1, with a green message displayed at the bottom of the screen. If the computer wins, its score increases by 1, and a red message appears. If both choose the same, it's a draw, and a message in a blackish color is shown.`,
+  //   github: "https://github.com/yourusername/tic-tac-toe",
+  // },
   {
     id: 9,
     title: "Bubble Game",
-    image: "../../public/Projects/images/bubble_game.png",
-    video: "/videos/tic-tac-toe.mp4",
+    image: `${import.meta.env.BASE_URL}Projects/images/bubble_game.png`,
+    video: `${import.meta.env.BASE_URL}Projects/videos/bubble_game.mp4`,
     description: `a fully responsive Bubble Game web app, created with HTML, CSS, and JavaScript.
 
       The game generates different random numbers in each bubble and also produces a random "Hit" number. The player needs to click on the bubble that matches the "Hit" number. When the numbers match, the score increases by 10 points, and new random numbers are generated for the bubbles and the "Hit" number.

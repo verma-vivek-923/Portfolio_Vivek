@@ -6,7 +6,10 @@ const Projects = () => {
   console.log(projects);
 
   return (
-    <div className="max-w-screen-2xl shadow-sm py-2 container relative items-center justify-center mx-auto px-4 md:px-20">
+    <div name="projects"
+    data-aos="zoom-in-up" data-aos-duration="1000"
+    
+    className="max-w-screen-2xl mt-6 shadow-sm py-2 container relative items-center justify-center mx-auto px-4 md:px-20">
       <div className="container mx-auto md:py-10" >
         <h1 className="text-4xl font-bold text-center text-yellow-400 mb-6">
           PROJECTS
@@ -15,6 +18,7 @@ const Projects = () => {
           {projects.map((data) => (
             <div
               key={data.id}
+            
               className="bg-gray-900 text-white p-2  rounded-lg shadow-lg border  transform transition duration-500 hover:scale-105"
             >
               <Link  to={`/project/${data.id}`}>

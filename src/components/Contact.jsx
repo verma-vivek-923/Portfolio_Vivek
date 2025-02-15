@@ -1,69 +1,70 @@
+import axios from "axios";
 import React from "react";
-import { CiFacebook, CiLinkedin } from "react-icons/ci";
-import { FaSquareXTwitter } from "react-icons/fa6";
-import { FaInstagram, FaGithubSquare } from "react-icons/fa";
-import { SiGmail } from "react-icons/si";
+import { useForm } from "react-hook-form";
+import { toast } from "react-hot-toast";
 
 const Contact = () => {
+
   return (
-    <div className="container mx-auto py-10 text-center" id="contact">
-      <h1 className="text-4xl font-bold text-yellow-400 mb-6">CONTACT ME</h1>
-      
+    <>
       <div
-        className="flex justify-center gap-6"
-        data-aos="zoom-in-up"
-        data-aos-duration="1000"
+        name="contact"
+        className="max-w-screen-2xl container mx-auto px-4 md:px-20 my-16"
       >
-        <a
-          href="https://instagram.com/verma.vivek923"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-4xl text-pink-500 hover:text-pink-600 transition duration-300"
-        >
-          <FaInstagram />
-        </a>
-        <a
-          href="https://www.google.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-4xl text-blue-600 hover:text-blue-700 transition duration-300"
-        >
-          <CiFacebook />
-        </a>
-        <a
-          href="https://https://www.linkedin.com/in/vivek-verma-v022003"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-4xl text-blue-500 hover:text-blue-600 transition duration-300"
-        >
-          <CiLinkedin />
-        </a>
-        {/* <a
-          href="https://www.google.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-4xl text-black hover:text-gray-800 transition duration-300"
-        >
-          <FaSquareXTwitter />
-        </a> */}
-        <a
-          href="https://https://github.com/verma-vivek-923"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-4xl text-gray-700 hover:text-black transition duration-300"
-        >
-          <FaGithubSquare />
-        </a>
-        <a
-          href="mailto:web.vivek.022003@gmail.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-4xl text-red-500 hover:text-red-600 transition duration-300"
-        >
-          <SiGmail />
-        </a>
+        <h1 className="text-4xl font-bold text-yellow-400 mb-4">Contact me</h1>
+        <span>Please fill out the form below to contact me</span>
+        <div className=" flex flex-col items-center justify-center mt-5">
+          <form
+            // onSubmit={handleSubmit(onSubmit)}
+            action="https://getform.io/f/bdrnrneb"
+            method="POST"
+            className="bg-slate-700 w-96 px-8 py-6 rounded-xl"
+          >
+            <h1 className="text-xl font-semibold text-yellow-400 mb-4">
+              Send Your Message
+            </h1>
+            <div className="flex flex-col mb-4">
+              <label className="block bg-transparent text-white">
+                FullName
+              </label>
+              <input
+                className="shadow rounded-lg bg-transparent border appearance-none border-yellow-400  py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline"
+                id="name"
+                name="name"
+                type="text"
+                placeholder="Enter your fullname"
+              />
+            </div>
+            <div className="flex flex-col mb-4">
+              <label className="block text-white">Email Address</label>
+              <input
+                className="shadow rounded-lg bg-transparent border appearance-none border-yellow-400  py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline"
+                id="email"
+                name="email"
+                type="text"
+                placeholder="Enter your email address"
+              />
+            </div>
+            <div className="flex flex-col mb-4">
+              <label className="block text-white">Message</label>
+              <textarea
+                className="shadow rounded-lg bg-transparent border appearance-none border-yellow-400  py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline"
+                id="message"
+                name="message"
+                type="text"
+                placeholder="Enter your Query"
+              />
+            </div>
+            <button
+              type="submit"
+              className="bg-green-800 text-lg mt-2 text-white py-2 rounded-md hover:bg-green-700  px-3 w-full duration-300"
+            >
+              Send
+            </button>
+          </form>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
