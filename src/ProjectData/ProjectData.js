@@ -1,10 +1,30 @@
 const projects = [
   {
     id: 1,
+    title: "QuickTalk (MERN)",
+    image: `${import.meta.env.BASE_URL}Projects/images/QuickTalk.png`,
+    // video: `${import.meta.env.BASE_URL}Projects/videos/Coolblog.mp4`,
+    description: ` QuickTalk, a dynamic web application designed to connect people and communicate with each other . 
+  This platform enables users to send meassage to any people through internet ,.
+
+  ✨ Key Features:
+  - User-Friendly Design: Seamlessly navigate and enjoy a clean, intuitive interface.
+  - Login/Signup Functionality: Secure your account to unlock advanced features.
+  - Send and recieve message real time with minimum delay through socket.io
+  - Contact Us Section: A direct channel for user support and feedback.
+  - Responsive Design: Optimized for devices of all sizes, ensuring a smooth experience everywhere.
+
+`,
+
+    github: "https://github.com/verma-vivek-923/CoolBlogs.com.git",
+    demo :"https://quick-talk-caht-app.vercel.app//",
+  },
+  {
+    id: 2,
     title: "CoolBlog.com (MERN)",
     image: `${import.meta.env.BASE_URL}Projects/images/Coolblog.png`,
     video: `${import.meta.env.BASE_URL}Projects/videos/Coolblog.mp4`,
-    description: `I'm thrilled to introduce CoolBlog, a dynamic web application designed to connect people through their thoughts and stories. 
+    description: ` CoolBlog, a dynamic web application designed to connect people through their thoughts and stories. 
   This platform enables users to read and share blogs effortlessly, fostering a vibrant community of readers and writers.
 
   ✨ Key Features:
@@ -24,7 +44,7 @@ const projects = [
   },
 
   {
-    id: 2,
+    id: 3,
     title: "Library.com (MERN))",
     image: `${import.meta.env.BASE_URL}Projects/images/Library.png`,
     video: `${import.meta.env.BASE_URL}Projects/videos/Library.mp4`,
@@ -42,7 +62,7 @@ const projects = [
     github: "https://github.com/verma-vivek-923/BookStore_Webapp.git",
   },
   {
-    id: 3,
+    id: 4,
     title: "Docx To Pdf Converter",
     image: `${import.meta.env.BASE_URL}Projects/images/DocToPdf.png`,
     video: `${import.meta.env.BASE_URL}Projects/videos/DocToPdf.mp4`,
@@ -51,7 +71,7 @@ const projects = [
     github: "https://github.com/verma-vivek-923/Word_To_PDF-Converter.git",
   },
   {
-    id: 4,
+    id: 5,
     title: "Currency Converter",
     image: `${import.meta.env.BASE_URL}Projects/images/Currency_Converter.png`,
     video: `${import.meta.env.BASE_URL}Projects/videos/currency.mp4`,
@@ -64,7 +84,7 @@ const projects = [
     github: "https://github.com/verma-vivek-923/Currency_Converter.git",
   },
   {
-    id: 5,
+    id: 6,
     title: "To-Do List",
     image: `${import.meta.env.BASE_URL}Projects/images/ToDo.png`,
     video: `${import.meta.env.BASE_URL}Projects/videos/ToDo.mp4`,
@@ -77,7 +97,7 @@ const projects = [
     github: "https://github.com/verma-vivek-923/To-Do_App",
   },
   {
-    id: 6,
+    id: 7,
     title: "Tic-Tac-Toe game",
     image: `${import.meta.env.BASE_URL}Projects/images/Tic_Tac_Toe.png`,
     video: `${import.meta.env.BASE_URL}Projects/videos/Tic_Tac_Toe.mp4`,
@@ -89,7 +109,7 @@ const projects = [
     github: "https://github.com/verma-vivek-923/Tic-Tac-Toe_Game",
   },
   {
-    id: 7,
+    id: 8,
     title: "Rock-Paper-Scissor game",
     image: `${import.meta.env.BASE_URL}Projects/images/RockPaperScissor.png`,
     video: `${import.meta.env.BASE_URL}Projects/videos/RockPaperScissor.mp4`,
@@ -98,15 +118,7 @@ const projects = [
       In this game, the player selects one of the three options: rock, paper, or scissors. The computer then makes its choice. If your choice beats the computer's, you win, and your score increases by 1, with a green message displayed at the bottom of the screen. If the computer wins, its score increases by 1, and a red message appears. If both choose the same, it's a draw, and a message in a blackish color is shown.`,
     github: "https://github.com/verma-vivek-923/Rock-Paper-Scissor_Game",
   },
-  // {
-  //   id: 8,
-  //   title: "Food_Order.com",
-  //   image: `${import.meta.env.BASE_URL}Projects/images/FoodOrder.png`,
-  //   video: `${import.meta.env.BASE_URL}Projects/videos/FoodOrder.mp4`,
-  //   description: `a fully responsive Rock-Paper-Scissors game built with HTML, CSS, and JavaScript!
-  //     In this game, the player selects one of the three options: rock, paper, or scissors. The computer then makes its choice. If your choice beats the computer's, you win, and your score increases by 1, with a green message displayed at the bottom of the screen. If the computer wins, its score increases by 1, and a red message appears. If both choose the same, it's a draw, and a message in a blackish color is shown.`,
-  //   github: "https://github.com/yourusername/tic-tac-toe",
-  // },
+  
   {
     id: 9,
     title: "Bubble Game",

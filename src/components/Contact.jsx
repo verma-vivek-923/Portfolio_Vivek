@@ -2,6 +2,7 @@ import axios from "axios";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
+import { FaPhoneVolume } from "react-icons/fa6";
 
 const Contact = () => {
 
@@ -9,16 +10,19 @@ const Contact = () => {
     <>
       <div
         name="contact"
+         data-aos="zoom-in-up" data-aos-duration="700"
         className="max-w-screen-2xl container mx-auto px-4 md:px-20 my-16"
       >
-        <h1 className="text-4xl font-bold text-yellow-400 mb-4">Contact me</h1>
+        <h1 className="text-3xl flex items-center gap-2 font-bold text-yellow-400 mb-4">
+          <FaPhoneVolume size={20} /> <span>Contact me</span>
+          </h1>
         <span>Please fill out the form below to contact me</span>
         <div className=" flex flex-col items-center justify-center mt-5">
           <form
             // onSubmit={handleSubmit(onSubmit)}
             action="https://getform.io/f/bdrnrneb"
             method="POST"
-            className="bg-slate-700 w-96 px-8 py-6 rounded-xl"
+            className="bg-slate-700 w-full md:w-96 px-8 py-6 rounded-xl"
           >
             <h1 className="text-xl font-semibold text-yellow-400 mb-4">
               Send Your Message

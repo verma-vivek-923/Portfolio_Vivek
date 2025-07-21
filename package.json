@@ -15,6 +15,7 @@
   "dependencies": {
     "aos": "^2.3.4",
     "axios": "^1.7.9",
+    "motion": "^12.23.6",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-hook-form": "^7.54.2",

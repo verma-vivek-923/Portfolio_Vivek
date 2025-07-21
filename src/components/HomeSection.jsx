@@ -35,7 +35,7 @@ const HomeSection = () => {
             <img
               src={photo}
               alt="hero"
-              className="h-[220px] w-[220px] md:h-[270px] md:w-[270px] border-2 object-center object-cover border-yellow-400 rounded-full animate-superman"
+              className="h-[200px] w-[200px] md:h-[270px] md:w-[270px] border-2 object-center object-cover border-yellow-400 rounded-full animate-superman"
             />
           </div>
         </div>
