@@ -116,7 +116,7 @@ const Home = () => {
       <div
         ref={sectionRefs.Contact}
         data-section="Contact Me"
-        className="min-h-screen"
+        // className="min-h-screen"
       >
         <Contact />
       </div>
