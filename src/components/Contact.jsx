@@ -14,11 +14,12 @@ const Contact = () => {
     <>
       <div
         name="contact"
-        data-aos="zoom-in-up"
+        data-aos="fade-up"
+        data-aos-anchor-placement="center-bottom"
         data-aos-duration="700"
         className="max-w-screen-2xl container mx-auto px-4 md:px-20 "
       >
-        <h1 className="text-3xl flex items-center gap-2 font-bold text-yellow-400 mb-4">
+        <h1 className="text-3xl flex items-center justify-center gap-2 font-bold text-yellow-400 mb-4">
           <FaPhoneVolume size={20} /> <span>Contact me</span>
         </h1>
         {/* <span>Please fill out the form below to contact me</span> */}

@@ -7,7 +7,7 @@ import { CgMail } from "react-icons/cg";
 
 const SocialAppConnect = () => {
   return (
-    <div className="space-y-4 mt-12  ">
+    <div className="space-y-4 ">
       <div className="space-y-1 ">
         <h1 className="text-4xl">Let's Build Together </h1>
         <div className="px-4 ">

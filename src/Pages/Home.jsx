@@ -77,7 +77,7 @@ const Home = () => {
             transition={{ duration: 0.4, ease: "easeInOut" }}
 
            
-            className={`sticky md:px-4 lg:px-20 text-yellow-400 px-2 top-14 z-10 bg-slate-800 shadow-lg px-4 py-2 text-xl md:text-2xl font-semibold rounded-b-sm transition-opacity duration-300 ${
+            className={`fixed left-[45%] flex items-center justify-center  text-yellow-400 px-4 py-1 top-16 z-10 bg-slate-800 shadow-lg   text-xl md:text-2xl font-semibold rounded-xl transition-opacity duration-300 ${
               currentSection === "Home"
                 ? "opacity-0 pointer-events-none"
                 : "opacity-100"
@@ -108,6 +108,14 @@ const Home = () => {
       <div
         ref={sectionRefs.Projects}
         data-section="Projects"
+      
+      >
+        {/* < /> */}
+      </div>
+
+      <div
+        ref={sectionRefs.Projects}
+        data-section="Projects"
         className="min-h-screen"
       >
         <Projects />
@@ -116,7 +124,7 @@ const Home = () => {
       <div
         ref={sectionRefs.Contact}
         data-section="Contact Me"
-        // className="min-h-screen"
+        className="mt-12"
       >
         <Contact />
       </div>

@@ -14,14 +14,19 @@ const Projects = () => {
       className="max-w-screen-2xl mt-6 shadow-sm py-2 container relative items-center justify-center mx-auto px-4 md:px-24"
     >
       <div className="container mx-auto md:py-10">
-        <h1 className="text-3xl ml-3 md:ml-8 flex items-center gap-2 font-bold text-center text-yellow-400 mb-6">
-          <FaRegListAlt size={30} /> <span>Projects</span>
+        {/* <div> */}
+        <h1 className="text-3xl ml-3 flex  items-center justify-center gap-2 font-bold text-center text-yellow-400 mb-6">
+          
+            <FaRegListAlt size={30} /> <span>Projects</span>
+          
+          {/* <span className="bg-yellow-400 w-full h-4"></span> */}
         </h1>
+        {/* </div> */}
         <div className="grid grid-cols-1 sm:grid-cols-2  md:grid-cols-3 lg:grid-cols-4 gap-6">
           {projects.map((data) => (
             <div
               key={data.id}
-              className="bg-gray-900 text-white p-2  rounded-lg shadow-lg border  transform transition duration-300 hover:scale-105"
+              className="bg-gray-900 text-white p-2  rounded-md shadow-lg border  transform transition duration-300 hover:scale-105"
             >
               <Link to={`/project/${data.id}`}>
                 <div className="relative px-1 flex justify-center">

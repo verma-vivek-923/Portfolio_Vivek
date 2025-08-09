@@ -24,7 +24,7 @@ const HomeSection = () => {
             </div>
           </div>
           <a href={resume} download>
-            <button className="bg-red-600 rounded-lg mt-4 w-max py-1 px-4">
+            <button className="active:scale-95 bg-red-800/35 text-red-400 duration-200 hover:bg-red-800/50 rounded-lg mt-4 w-max py-1 px-4">
               Download Resume
             </button>
           </a>
