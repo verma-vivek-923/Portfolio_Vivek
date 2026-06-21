@@ -1,99 +1,90 @@
 import React from "react";
 import { IoHome } from "react-icons/io5";
+import { FaGithub, FaExternalLinkAlt, FaArrowLeft } from "react-icons/fa";
 import { Link, useParams } from "react-router-dom";
 import projects from "../ProjectData/ProjectData";
+import { motion } from "framer-motion";
 
 const ProjectDetail = () => {
   const { id } = useParams();
-
   const data = projects.find((e) => e.id === parseInt(id));
-  console.log(data);
 
   if (!data) {
-    return <h2 className="text-center text-2xl">Project not found</h2>;
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <h2 className="text-2xl text-gray-400">Project not found</h2>
+      </div>
+    );
   }
 
   return (
-    <div>
-      <div className="min-h-screen flex relative justify-center pt-8 items-start">
-        <Link
-          to={"/"}
-          className=" absolute  top-4  left-4 px-2 md:px-10 flex  items-center space-x-1"
-        >
-          <IoHome />
-          <span>Home</span>
+    <div className="min-h-screen py-8 px-4 md:px-10">
+      <div className="max-w-4xl mx-auto">
+        {/* Back */}
+        <Link to="/" className="flex items-center gap-2 text-gray-400 hover:text-yellow-400 transition-colors mb-6">
+          <FaArrowLeft size={14} /> Back to Portfolio
         </Link>
-        <div className="group w-full mt-2 bg-gray-900 max-w-3xl p-4 shadow-2xl rounded-md  mx-auto">
-          {data ? (
-            <div>
-              <div className="relative ">
-                {/* <img
-                  className="w-full h-80 object-cover rounded-lg mb-2 transition-all  border border-yellow-400 ease-in-out"
-                  src={data?.image}
-                  alt="blog image"
-                /> */}
-                <video controls autoPlay muted className="w-full rounded-lg mt-4">
-                  <source src={data.video} type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
 
-                {/* <div className="absolute w-full h-full rounded-md inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-20  transition-transform duration-300 "></div> */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="glow-card rounded-2xl overflow-hidden"
+        >
+          {/* Video */}
+          {data.video && (
+            <video controls autoPlay muted className="w-full max-h-96 object-cover bg-black">
+              <source src={data.video} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          )}
+
+          <div className="p-6 md:p-8">
+            {/* Header */}
+            <div className="flex flex-wrap items-start justify-between gap-4 mb-6">
+              <div>
+                <h1 className="text-2xl md:text-3xl font-bold text-white mb-1">{data.title}</h1>
+                <div className="flex items-center gap-2">
+                  {data.demo && (
+                    <span className="flex items-center gap-1.5 text-xs text-green-400">
+                      <span className="relative flex h-2 w-2">
+                        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75" />
+                        <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500" />
+                      </span>
+                      Live
+                    </span>
+                  )}
+                </div>
               </div>
 
-              <div>
-                <div className="flex justify-between mt-2 px-4">
-                  <h1 className="text-xl md:text-2xl lg:text-3xl capitalize font-semibold text-yellow-500">
-                    {data?.title}
-                  </h1>
-                  <div className="mt-4 mb-1 flex justify-end gap-4">
-                <a
-                  href={data.demo}
-                  target="_blank"
-                  className={`${data.demo ? "block" : "hidden" } bg-blue-500  cursor-pointer hover:bg-blue-600 text-white px-4 py-1 rounded-md`}
-                >
-                  Demo
-                </a>
+              <div className="flex gap-3">
+                {data.demo && (
+                  <a
+                    href={data.demo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 px-4 py-2 bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 rounded-xl hover:bg-cyan-500/20 transition-all text-sm"
+                  >
+                    <FaExternalLinkAlt size={12} /> Live Demo
+                  </a>
+                )}
                 <a
                   href={data.github}
                   target="_blank"
-                  className="bg-yellow-400 cursor-pointer hover:bg-yellow-500 text-black px-4 py-1 rounded-md"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 px-4 py-2 bg-yellow-400/10 border border-yellow-400/20 text-yellow-400 rounded-xl hover:bg-yellow-400/20 transition-all text-sm"
                 >
-                  Code
+                  <FaGithub size={14} /> Source Code
                 </a>
               </div>
-                </div>
-                <div className="mt-3 border-t border-gray-300" />
-              </div>
-              <div className="mt-6 mb-12 text-gray-400">
-                {data?.description}
-              </div>
             </div>
-          ) : (
-            <div className="h-96 flex px-2 py-4 justify-center">
-              {/* <span className="loading loading-spinner loading-lg"></span> */}
-              <div className="flex w-full justify-center flex-col gap-4">
-                <div className="flex flex-col gap-2">
-                  <div className="skeleton h-36 w-full"></div>
-                  <div className="skeleton h-4 w-28"></div>
-                </div>
 
-                <div className="flex items-center gap-4">
-                  <div className="skeleton h-10 w-10 shrink-0 rounded-full"></div>
-                  <div className="flex flex-col gap-4">
-                    <div className="skeleton h-4 w-20"></div>
-                  </div>
-                </div>
-
-                <div className="flex flex-col pr-8 gap-4 items-start">
-                  <div className="skeleton h-4  w-full"></div>
-                  <div className="skeleton h-4  w-full"></div>
-                  <div className="skeleton h-4  w-full"></div>
-                  <div className="skeleton h-4  w-full"></div>
-                </div>
-              </div>
+            <div className="border-t border-white/5 pt-6">
+              <h3 className="text-gray-400 text-sm uppercase tracking-widest mb-3">About This Project</h3>
+              <p className="text-gray-300 leading-relaxed whitespace-pre-line">{data.description}</p>
             </div>
-          )}
-        </div>
+          </div>
+        </motion.div>
       </div>
     </div>
   );

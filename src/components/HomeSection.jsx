@@ -1,46 +1,145 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { ReactTyped } from "react-typed";
 import photo from "../../public/Photo.avif";
 import resume from "../../public/Vivek_resume.pdf";
+import { Link } from "react-scroll";
+import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
+import { SiGmail } from "react-icons/si";
+import { MdDownload, MdArrowForward } from "react-icons/md";
+import { motion } from "framer-motion";
+
+const SOCIALS = [
+  { icon: <FaGithub size={20} />, href: "https://github.com/verma-vivek-923", label: "GitHub", color: "hover:text-white" },
+  { icon: <FaLinkedin size={20} />, href: "https://www.linkedin.com/in/vivek-verma-v022003", label: "LinkedIn", color: "hover:text-blue-400" },
+  { icon: <FaInstagram size={20} />, href: "https://instagram.com/verma.vivek923", label: "Instagram", color: "hover:text-pink-400" },
+  { icon: <SiGmail size={18} />, href: "mailto:web.vivek.022003@gmail.com", label: "Gmail", color: "hover:text-red-400" },
+];
 
 const HomeSection = () => {
   return (
-    <div name="home" className="max-w-screen-2xl flex-col-reverse shadow-sm py-2 container relative items-center justify-center mx-auto px-4 md:px-20">
-      <div className="flex flex-col md:flex-row">
-        <div data-aos="fade-up-right" data-aos-duration="1000" className="flex flex-col justify-center order-2 md:order-1 md:ml-12 md:mt-16 w-full md:w-1/2 -translate-y-6 md:translate-y-0">
-          <div className="flex flex-col text-xl">
-            <span className="text-2xl md:text-3xl">Hello, It's Me</span>
-            <h1 className="text-5xl md:text-7xl mb-2">Vivek Verma</h1>
-            <div className="text-4xl">
-              <span className="text-3xl md:text-4xl">And I am a </span>
-              <span className="text-red-600 text-3xl md:text-5xl">
+    <section
+      name="home"
+      className="relative min-h-[90vh] flex items-center overflow-hidden"
+    >
+      {/* Ambient glow */}
+      <div className="absolute top-20 left-10 w-72 h-72 bg-yellow-400/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-10 right-10 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-500/3 rounded-full blur-3xl pointer-events-none" />
+
+      <div className="max-w-screen-xl mx-auto px-4 md:px-10 w-full py-16">
+        <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-12">
+          {/* Text */}
+          <motion.div
+            initial={{ x: -60, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="flex-1 max-w-xl"
+          >
+            <div className="mono text-yellow-400/70 text-sm tracking-widest mb-3 flex items-center gap-2">
+              <span className="inline-block w-8 h-[1px] bg-yellow-400/40" />
+              FULL STACK DEVELOPER
+            </div>
+
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-2" style={{ fontFamily: 'Fredoka, sans-serif' }}>
+              <span className="text-white">Hi, I'm</span>{" "}
+              <span className="gradient-text">Vivek</span>
+            </h1>
+
+            <div className="text-2xl md:text-3xl mb-6 text-gray-300 flex items-center gap-2 flex-wrap">
+              <span>I build</span>
+              <span className="text-yellow-400 font-semibold">
                 <ReactTyped
-                  strings={["Developer", "Programmer", "Coder"]}
-                  typeSpeed={40}
-                  backSpeed={50}
+                  strings={["Web Applications", "REST APIs", "Chat Apps", "Full Stack Projects"]}
+                  typeSpeed={50}
+                  backSpeed={35}
                   loop={true}
                 />
               </span>
             </div>
-          </div>
-          <a href={resume} download>
-            <button className="active:scale-95 bg-red-800/35 text-red-400 duration-200 hover:bg-red-800/50 rounded-lg mt-4 w-max py-1 px-4">
-              Download Resume
-            </button>
-          </a>
+
+            <p className="text-gray-400 leading-relaxed mb-8 text-base max-w-lg">
+              A passionate Full Stack Developer from Indore, India, crafting scalable web experiences
+              with the MERN stack. I love turning complex problems into clean, elegant solutions.
+            </p>
+
+            {/* CTAs */}
+            <div className="flex flex-wrap gap-4 mb-8">
+              <Link to="projects" smooth duration={500} offset={-70}>
+                <button className="flex items-center gap-2 px-6 py-3 bg-yellow-400 text-black font-semibold rounded-xl hover:bg-yellow-300 active:scale-95 transition-all duration-200">
+                  View Projects <MdArrowForward size={18} />
+                </button>
+              </Link>
+              <a href={resume} download>
+                <button className="flex items-center gap-2 px-6 py-3 border border-yellow-400/40 text-yellow-400 font-semibold rounded-xl hover:bg-yellow-400/10 active:scale-95 transition-all duration-200">
+                  <MdDownload size={18} /> Resume
+                </button>
+              </a>
+            </div>
+
+            {/* Socials */}
+            <div className="flex items-center gap-5">
+              {SOCIALS.map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={s.label}
+                  className={`text-gray-500 ${s.color} transition-all duration-200 hover:scale-110`}
+                >
+                  {s.icon}
+                </a>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Photo */}
+          <motion.div
+            initial={{ x: 60, opacity: 0, scale: 0.9 }}
+            animate={{ x: 0, opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7, delay: 0.3 }}
+            className="flex-shrink-0 flex justify-center"
+          >
+            <div className="relative">
+              {/* Outer ring */}
+              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-yellow-400/20 via-cyan-500/20 to-purple-500/20 blur-xl scale-110" />
+              <img
+                src={photo}
+                alt="Vivek Verma"
+                className="h-56 w-56 md:h-72 md:w-72 lg:h-80 lg:w-80 border-4 object-cover object-center border-yellow-400 rounded-full animate-superman relative z-10"
+              />
+              {/* Badge */}
+              <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-[#0b1a33] border border-yellow-400/30 px-4 py-1.5 rounded-full z-20 whitespace-nowrap">
+                <span className="text-xs text-yellow-400 mono tracking-wider">Available for hire ✓</span>
+              </div>
+            </div>
+          </motion.div>
         </div>
-        <div data-aos="fade-up-left" data-aos-duration="1000" className="flex justify-end md:justify-center order-1 items-center md:mt-16 w-ful md:w-1/2">
-          <div className=" h-56 w-56 md:h-72 md:w-72 flex justify-center items-center   rounded-full  ">
-            {/* <img src={photo} alt="" className="object-cover object-center"/> */}
-            <img
-              src={photo}
-              alt="hero"
-              className="h-[200px] w-[200px] md:h-[270px] md:w-[270px] border-2 object-center object-cover border-yellow-400 rounded-full animate-superman"
-            />
-          </div>
-        </div>
+
+        {/* Stats row */}
+        <motion.div
+          initial={{ y: 40, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+          className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4"
+        >
+          {[
+            { label: "Projects Built", value: "10+" },
+            { label: "Technologies", value: "15+" },
+            { label: "GitHub Repos", value: "20+" },
+            { label: "Years Learning", value: "2+" },
+          ].map((stat) => (
+            <div
+              key={stat.label}
+              className="glow-card rounded-2xl p-5 text-center"
+            >
+              <div className="stat-number">{stat.value}</div>
+              <div className="text-gray-400 text-sm mt-1">{stat.label}</div>
+            </div>
+          ))}
+        </motion.div>
       </div>
-    </div>
+    </section>
   );
 };
 

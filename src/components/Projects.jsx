@@ -1,85 +1,148 @@
-import React from "react";
+import React, { useState } from "react";
 import projects from "../ProjectData/ProjectData";
 import { Link } from "react-router-dom";
-import { FaRegListAlt } from "react-icons/fa";
+import { FaRegListAlt, FaExternalLinkAlt, FaGithub } from "react-icons/fa";
+import { motion } from "framer-motion";
+
+const FILTERS = ["All", "MERN", "JavaScript", "React"];
 
 const Projects = () => {
-  console.log(projects);
+  const [filter, setFilter] = useState("All");
+
+  const filtered = projects.filter((p) => {
+    if (filter === "All") return true;
+    if (filter === "MERN") return p.title.includes("MERN");
+    if (filter === "JavaScript") return !p.title.includes("MERN") && !p.title.includes("React");
+    if (filter === "React") return p.title.includes("React") || p.title.includes("MERN");
+    return true;
+  });
+
+  const displayProjects = filter === "All" ? projects : filtered;
 
   return (
-    <div
+    <section
       name="projects"
-      data-aos="zoom-in-up"
-      data-aos-duration="1000"
-      className="max-w-screen-2xl mt-6 shadow-sm py-2 container relative items-center justify-center mx-auto px-4 md:px-24"
+      className="relative py-20 overflow-hidden"
     >
-      <div className="container mx-auto md:py-10">
-        {/* <div> */}
-        <h1 className="text-3xl ml-3 flex  items-center justify-center gap-2 font-bold text-center text-yellow-400 mb-6">
-          
-            <FaRegListAlt size={30} /> <span>Projects</span>
-          
-          {/* <span className="bg-yellow-400 w-full h-4"></span> */}
-        </h1>
-        {/* </div> */}
-        <div className="grid grid-cols-1 sm:grid-cols-2  md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {projects.map((data) => (
-            <div
-              key={data.id}
-              className="bg-gray-900 text-white p-2  rounded-md shadow-lg border  transform transition duration-300 hover:scale-105"
+      <div className="absolute bottom-0 right-0 w-72 h-72 bg-purple-500/5 rounded-full blur-3xl" />
+
+      <div className="max-w-screen-xl mx-auto px-4 md:px-10">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-10"
+        >
+          <div className="mono text-yellow-400/60 text-sm tracking-widest mb-2">WHAT I'VE BUILT</div>
+          <h2 className="text-4xl md:text-5xl font-bold gradient-text section-heading">Projects</h2>
+        </motion.div>
+
+        {/* Filters */}
+        <div className="flex flex-wrap gap-2 justify-center mb-10">
+          {FILTERS.map((f) => (
+            <button
+              key={f}
+              onClick={() => setFilter(f)}
+              className={`px-5 py-2 rounded-xl text-sm font-medium transition-all duration-200 ${
+                filter === f
+                  ? "bg-yellow-400 text-black"
+                  : "border border-yellow-400/20 text-gray-400 hover:border-yellow-400/40 hover:text-yellow-400"
+              }`}
             >
-              <Link to={`/project/${data.id}`}>
-                <div className="relative px-1 flex justify-center">
-                  <div className="relative w-auto h-40">
-                    <img
-                      src={data.image}
-                      alt={data.title}
-                      className=" object-cover w-full h-full rounded-lg border-2 border-yellow-400"
-                    />
-                    <label
-                      className={`${
-                        data.demo ? "flex" : "hidden"
-                      } absolute  items-center text-xs    text-red-800 gap-1 top-2 left-4`}
-                    >
-                      <span class="relative flex size-2.5">
-                        <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-800 opacity-75"></span>
-                        <span class="relative inline-flex size-2.5 rounded-full bg-red-500"></span>
-                      </span>
-                      <span>Live</span>
-                    </label>
-                  </div>
-                  {/* <span className="absolute left-4 animate-ping top-2 rounded-full w-2 h-2 bg-green-700"></span> */}
-                </div>
-                <div className="px-3 mt-2 ">
-                  <h5 className="text-xl font-semibold">{data.title}</h5>
-                  <p className="text-sm text-gray-400 mt-2 line-clamp-2">
-                    {data.description}
-                  </p>
-                </div>
-              </Link>
-              <div className="mt-4 mb-1 text-sm px-4 flex justify-end gap-4">
-                <a
-                  href={data.demo}
-                  target="_blank"
-                  className={`${
-                    data.demo ? "block" : "hidden"
-                  }  active:scale-95 bg-blue-500  cursor-pointer hover:bg-blue-600 text-white px-2 py-1 rounded-md`}
-                >
-                  Live Demo
-                </a>
-                <a
-                  href={data.github}
-                  target="_blank"
-                  className="active:scale-95 bg-yellow-400 cursor-pointer hover:bg-yellow-500 text-black px-2 py-1 rounded-md"
-                >
-                  View Code
-                </a>
-              </div>
-            </div>
+              {f}
+            </button>
           ))}
         </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {displayProjects.map((data, i) => (
+            <motion.div
+              key={data.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: i * 0.07 }}
+              className="glow-card rounded-2xl overflow-hidden group"
+            >
+              {/* Image */}
+              <Link to={`/project/${data.id}`}>
+                <div className="relative overflow-hidden h-48">
+                  <img
+                    src={data.image}
+                    alt={data.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#060d1a] via-transparent to-transparent opacity-80" />
+                  
+                  {/* Live badge */}
+                  {data.demo && (
+                    <div className="absolute top-3 left-3 flex items-center gap-1.5 bg-black/60 backdrop-blur-sm px-2.5 py-1 rounded-full">
+                      <span className="relative flex h-2 w-2">
+                        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75" />
+                        <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500" />
+                      </span>
+                      <span className="text-xs text-green-400">Live</span>
+                    </div>
+                  )}
+                </div>
+              </Link>
+
+              {/* Content */}
+              <div className="p-5">
+                <Link to={`/project/${data.id}`}>
+                  <h3 className="text-lg font-semibold text-white mb-2 hover:text-yellow-400 transition-colors">
+                    {data.title}
+                  </h3>
+                  <p className="text-sm text-gray-400 leading-relaxed line-clamp-2 mb-4">
+                    {data.description.split("\n")[0].trim()}
+                  </p>
+                </Link>
+
+                {/* Actions */}
+                <div className="flex gap-3 pt-3 border-t border-white/5">
+                  {data.demo && (
+                    <a
+                      href={data.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-xs px-3 py-1.5 bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 rounded-lg hover:bg-cyan-500/20 transition-all active:scale-95"
+                    >
+                      <FaExternalLinkAlt size={11} /> Live Demo
+                    </a>
+                  )}
+                  <a
+                    href={data.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-xs px-3 py-1.5 bg-yellow-400/10 border border-yellow-400/20 text-yellow-400 rounded-lg hover:bg-yellow-400/20 transition-all active:scale-95"
+                  >
+                    <FaGithub size={12} /> Source Code
+                  </a>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* GitHub CTA */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="text-center mt-12"
+        >
+          <a
+            href="https://github.com/verma-vivek-923"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-6 py-3 border border-yellow-400/30 text-yellow-400 rounded-xl hover:bg-yellow-400/10 transition-all duration-200"
+          >
+            <FaGithub size={18} /> View All on GitHub
+          </a>
+        </motion.div>
       </div>
-    </div>
+    </section>
   );
 };
 
