@@ -9,11 +9,40 @@ import { MdDownload, MdArrowForward } from "react-icons/md";
 import { motion } from "framer-motion";
 
 const SOCIALS = [
-  { icon: <FaGithub size={20} />, href: "https://github.com/verma-vivek-923", label: "GitHub", color: "hover:text-white" },
-  { icon: <FaLinkedin size={20} />, href: "https://www.linkedin.com/in/vivek-verma-v022003", label: "LinkedIn", color: "hover:text-blue-400" },
-  { icon: <FaInstagram size={20} />, href: "https://instagram.com/verma.vivek923", label: "Instagram", color: "hover:text-pink-400" },
-  { icon: <SiGmail size={18} />, href: "mailto:web.vivek.022003@gmail.com", label: "Gmail", color: "hover:text-red-400" },
+  {
+    icon: <FaGithub size={20} />,
+    href: "https://github.com/verma-vivek-923",
+    label: "GitHub",
+    color: "hover:text-white",
+  },
+  {
+    icon: <FaLinkedin size={20} />,
+    href: "https://www.linkedin.com/in/vivek-verma-v022003",
+    label: "LinkedIn",
+    color: "hover:text-blue-400",
+  },
+  {
+    icon: <FaInstagram size={20} />,
+    href: "https://instagram.com/verma.vivek.022003",
+    label: "Instagram",
+    color: "hover:text-pink-400",
+  },
+  {
+    icon: <SiGmail size={18} />,
+    href: "mailto:verma022003@gmail.com",
+    label: "Gmail",
+    color: "hover:text-red-400",
+  },
 ];
+
+const stats = [
+  { label: "Projects Built", value: "10+" },
+  { label: "Technologies", value: "15+" },
+  { label: "GitHub Repos", value: "20+" },
+  { label: "Years Learning", value: "2+" },
+];
+
+const mobileStats = [...stats, ...stats];
 
 const HomeSection = () => {
   return (
@@ -40,7 +69,10 @@ const HomeSection = () => {
               FULL STACK DEVELOPER
             </div>
 
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-2" style={{ fontFamily: 'Fredoka, sans-serif' }}>
+            <h1
+              className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-2"
+              style={{ fontFamily: "Fredoka, sans-serif" }}
+            >
               <span className="text-white">Hi, I'm</span>{" "}
               <span className="gradient-text">Vivek</span>
             </h1>
@@ -49,7 +81,12 @@ const HomeSection = () => {
               <span>I build</span>
               <span className="text-yellow-400 font-semibold">
                 <ReactTyped
-                  strings={["Web Applications", "REST APIs", "Chat Apps", "Full Stack Projects"]}
+                  strings={[
+                    "Web Applications",
+                    "REST APIs",
+                    "Chat Apps",
+                    "Full Stack Projects",
+                  ]}
                   typeSpeed={50}
                   backSpeed={35}
                   loop={true}
@@ -58,8 +95,9 @@ const HomeSection = () => {
             </div>
 
             <p className="text-gray-400 leading-relaxed mb-8 text-base max-w-lg">
-              A passionate Full Stack Developer from Indore, India, crafting scalable web experiences
-              with the MERN stack. I love turning complex problems into clean, elegant solutions.
+              A passionate Full Stack Developer from Indore, India, crafting
+              scalable web experiences with the MERN stack. I love turning
+              complex problems into clean, elegant solutions.
             </p>
 
             {/* CTAs */}
@@ -110,33 +148,60 @@ const HomeSection = () => {
               />
               {/* Badge */}
               <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-[#0b1a33] border border-yellow-400/30 px-4 py-1.5 rounded-full z-20 whitespace-nowrap">
-                <span className="text-xs text-yellow-400 mono tracking-wider">Available for hire ✓</span>
+                <span className="text-xs text-yellow-400 mono tracking-wider">
+                  Available for hire ✓
+                </span>
               </div>
             </div>
           </motion.div>
         </div>
 
         {/* Stats row */}
+
         <motion.div
           initial={{ y: 40, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4"
+          className="mt-16"
         >
-          {[
-            { label: "Projects Built", value: "10+" },
-            { label: "Technologies", value: "15+" },
-            { label: "GitHub Repos", value: "20+" },
-            { label: "Years Learning", value: "2+" },
-          ].map((stat) => (
-            <div
-              key={stat.label}
-              className="glow-card rounded-2xl p-5 text-center"
+          {/* Desktop View */}
+          <div className="hidden md:grid md:grid-cols-4 gap-4">
+            {stats.map((stat) => (
+              <div
+                key={stat.label}
+                className="glow-card rounded-2xl p-5 text-center"
+              >
+                <div className="stat-number">{stat.value}</div>
+                <div className="text-gray-400 text-sm mt-1">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+
+          {/* Mobile View */}
+          <div className="md:hidden overflow-hidden">
+            <motion.div
+              className="flex gap-4 w-max"
+              animate={{
+                x: ["0%", "-50%"],
+              }}
+              transition={{
+                duration: 15,
+                repeat: Infinity,
+                ease: "linear",
+              }}
             >
-              <div className="stat-number">{stat.value}</div>
-              <div className="text-gray-400 text-sm mt-1">{stat.label}</div>
-            </div>
-          ))}
+              {mobileStats.map((stat, index) => (
+                <div
+                  key={index}
+                  className="glow-card w-36 flex-shrink-0 rounded-2xl p-4 text-center"
+                >
+                  <div className="stat-number text-2xl">{stat.value}</div>
+
+                  <div className="text-xs text-gray-400 mt-1">{stat.label}</div>
+                </div>
+              ))}
+            </motion.div>
+          </div>
         </motion.div>
       </div>
     </section>

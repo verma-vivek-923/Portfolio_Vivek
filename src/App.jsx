@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import ProjectDetail from "./components/ProjectDetail";
 import Home from "./Pages/Home";
+import { Agentation } from 'agentation';
 
 const App = () => {
   return (
@@ -25,6 +26,7 @@ const App = () => {
           },
         }}
       />
+      <Agentation />
     </>
   );
 };
